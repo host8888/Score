@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<School>
+    <persionA>
+        <name>张三</name>
+        <age>20&gt;10</age>
+        <classes>18软件1班</classes>
+    </persionA>
+    <persionB>
+        <name>李四</name>
+        <age>5&lt;30</age>
+        <sex>
+            <sexs>女</sexs>
+        </sex>
+        <classes>18软件二班</classes>
+    </persionB>
+</School>

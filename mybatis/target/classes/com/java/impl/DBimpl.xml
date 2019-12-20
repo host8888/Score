@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.impl.DBimpl">
+    <sql id="public">
+        id,name,age
+    </sql>
+<!--    <select id="publicT">-->
+<!--        select <include refid="public"></include> from infor-->
+<!--    </select>-->
+    <select id="selectAll" resultType="Map">
+        select * from infor where name like"张%"
+    </select>
+    <select id="selectOne" resultType="Map" parameterType="Long">
+        select * from infor where id=#{0}
+    </select>
+<!--    <select id="selectMore" resultType="Map" parameterType="Map">-->
+<!--    <select id="selectMore" resultType="Map" parameterType="com.java.impl.Mydb">-->
+    <select id="selectMore" resultType="com.java.impl.Mydb" parameterType="com.java.impl.Mydb">
+        select * from infor where age &gt; #{age} and name like#{name}
+    </select>
+    <select id="selectM" parameterType="Map" resultType="Map">
+        select  * from infor where name like '%${name}%' and age>#{age}
+    </select>
+    <insert id="insertAll" parameterType="Map">
+        insert into score(stu_id, c_name, grade) values (#{sid},#{name},#{score})
+    </insert>
+    <delete id="deleteOne" parameterType="Long">
+--         delete from  score where id=1
+            delete from  score where id=#{0}
+    </delete>
+    <update id="updateById" parameterType="Map">
+        update score set stu_id=#{sid},c_name=#{name},grade=#{score} where id=#{id}
+    </update>
+    <select id="selectChose" parameterType="Map" resultType="Map">
+        select * from infor
+        <where>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="name!=null and name!=''">
+                and name=#{name}
+            </if>
+            <if test="sex!=null and sex!=''">
+                and sex=#{sex}
+            </if>
+            <if test="age!=null and age!=''">
+                and age=#{age}
+            </if>
+            <if test="phome!=null and phome!=''">
+                and phome=#{phone}
+            </if>
+            <if test="address!=null and address!=''">
+                and address=#{address}
+            </if>
+        </where>
+    </select>
+    <update id="updateAuto" parameterType="Map">
+
+        update  mytest
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="age!=null and age!=''">
+                age=#{age},
+            </if>
+            id=#{id}
+        </set>
+            where id=#{id}
+
+    </update>
+</mapper>

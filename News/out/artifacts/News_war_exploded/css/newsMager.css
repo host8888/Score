@@ -1,0 +1,38 @@
+#util{
+    width: 120px;
+    height: 300px;
+    border: 1px solid black;
+    float: left;
+    text-align: center;
+    padding-top: 30px;
+    position: relative;
+    top: 50px;
+    font-weight: bolder;
+    color: #007bff;
+
+}
+#util span{
+    /*background-color: black;*/
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+}
+#msg {
+    width: 500px;
+    height: 200px;
+}
+#newsadd {
+    /*border: 1px solid black;*/
+    position: fixed;
+    top: 60px;
+    left: 400px;
+}
+#newsedit{
+    position: fixed;
+    top: 60px;
+    left: 400px;
+}
+#edmsg{
+    width: 500px;
+    height: 200px;
+}
